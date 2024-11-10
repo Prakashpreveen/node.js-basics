@@ -98,8 +98,8 @@
 
 // console.log(splittedWord);
 
-//-----Map----
-//-----Example - 1-----
+// -----Map----
+// -----Example - 1-----
 // var decArray: number[] = [23, 255, 122, 5, 16, 99, 69];
 // var hexDecimal: string[] = decArray.map((element: number) => {
 //   return element.toString(16);
@@ -107,7 +107,7 @@
 // console.log(decArray);
 // console.log(hexDecimal);
 
-//-----Example - 2-----
+// -----Example - 2-----
 // var actual: string[] = ["hi", "hello", "welcome"];
 // var modified: string[] = actual.map((i: string) => {
 //   return i === "hi" ? `${i},Max` : i;

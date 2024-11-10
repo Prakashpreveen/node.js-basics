@@ -59,3 +59,10 @@ console.log(book2.getYearsOld());
 console.log(book2);
 book2.revise("2024");
 console.log(book2);
+
+console.log("-----Filters-----");
+var charSet = ["**", "bb", "cd", "**", "cc", "**", "dd", "**"];
+var newArray = charSet.filter((element) => {
+  return element !== "**";
+});
+console.log(newArray);
