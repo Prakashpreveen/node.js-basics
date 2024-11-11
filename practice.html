@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car Details</title>
+    <style>
+      /* Optional: Style for the red border */
+      .error {
+        border-color: red;
+        border-width: 2px;
+        border-style: solid;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>JavaScript Cars</h1>
+    <p>Enter your car name:</p>
+    <input type="text" id="js-cars" />
+    <p>Enter the year of car manufacture:</p>
+    <input type="text" id="js-year" />
+    <button id="js-submit">Submit</button>
+
+    <p id="demo"></p>
+
+    <script>
+      // Get references to the input fields and button
+      const carName = document.getElementById("js-cars");
+      const carYear = document.getElementById("js-year");
+      const submitBtn = document.getElementById("js-submit");
+      const demoVal = document.getElementById("demo");
+
+      // Function to display car details
+      function showCarDetails() {
+        const carNameVal = carName.value;
+        const carYearVal = carYear.value;
+
+        // Validate year input
+        if (!carYearVal || isNaN(carYearVal) || carYearVal.length !== 4) {
+          carYear.classList.add("error"); // Add error class for red border
+          demoVal.textContent = "Please enter a valid 4-digit year.";
+          return;
+        } else {
+          carYear.classList.remove("error"); // Remove error class if valid
+        }
+
+        // Calculate the age of the car
+        const currentYear = new Date().getFullYear();
+        const ageOfCar = currentYear - carYearVal;
+
+        // Display the result in the demo paragraph
+        demoVal.textContent = `Your car is "${carNameVal}" and it's ${ageOfCar} years old.`;
+      }
+
+      // Add event listener to the submit button
+      submitBtn.addEventListener("click", showCarDetails);
+
+      // Add event listener for keydown event on car name input
+      carName.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          // Change border color of year input if Enter is pressed
+          carYear.classList.add("error");
+          demoVal.textContent = "Please fill in the manufacture year.";
+        }
+      });
+
+      // Add event listener for keydown event on year input
+      carYear.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          showCarDetails();
+        }
+      });
+    </script>
+  </body>
+</html>
